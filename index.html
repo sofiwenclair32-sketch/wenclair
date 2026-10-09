@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wenclair 💜</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    text-align:center;
+    color:white;
+    background-image:url("imagenes/wenclair.jpg");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+header{
+    padding:30px;
+}
+
+h1{
+    color:#ff7ac8;
+    font-size:50px;
+    text-shadow:3px 3px 10px black;
+}
+
+.caja{
+    background:rgba(37,0,51,.85);
+    width:80%;
+    max-width:700px;
+    margin:25px auto;
+    padding:25px;
+    border-radius:20px;
+}
+
+input{
+    width:260px;
+    padding:12px;
+    border-radius:10px;
+    border:2px solid pink;
+    background:#120018;
+    color:white;
+    font-size:16px;
+}
+
+button{
+    background:pink;
+    color:black;
+    border:none;
+    padding:15px 30px;
+    border-radius:20px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ff7ac8;
+}
+
+footer{
+    padding:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Wenclair 💜</h1>
+
+<p>Por un futuro donde Wednesday y Enid estén juntas.</p>
+
+</header>
+
+<section class="caja">
+
+<h2>✍️ Firma aquí</h2>
+
+<p>Apoya la petición Wenclair 💜</p>
+
+<form action="https://formspree.io/f/xnpjjdyb" method="POST" id="formulario">
+
+<input
+type="text"
+name="apodo"
+placeholder="Tu apodo de la serie"
+required>
+
+<br><br>
+
+<input
+type="email"
+name="email"
+placeholder="Tu correo (no será público)"
+required>
+
+<br><br>
+
+<button type="submit">
+💜 FIRMAR PETICIÓN 💜
+</button>
+
+</form>
+
+<p>🖤 Tu nombre real nunca será mostrado.</p>
+
+</section>
+
+<section class="caja">
+
+<h2>💜 Razones para apoyar Wenclair</h2>
+
+<p>✨ Wednesday y Enid tienen una conexión especial.</p>
+
+<p>✨ Su amistad ha conquistado a millones de fans.</p>
+
+<p>✨ Queremos seguir viendo crecer su historia.</p>
+
+</section>
+
+<section class="caja">
+
+<h2>🎮 Juegos y datos</h2>
+
+<p>Muy pronto encontrarás trivias, curiosidades y juegos de Wenclair.</p>
+
+</section>
+
+<footer>
+
+💜 Hecho por fans para fans 💜
+
+</footer>
+
+<script>
+
+const formulario = document.getElementById("formulario");
+
+formulario.addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const datos = new FormData(formulario);
+
+const respuesta = await fetch(formulario.action,{
+
+method:"POST",
+
+body:datos,
+
+headers:{
+Accept:"application/json"
+}
+
+});
+
+if(respuesta.ok){
+
+window.location.href="gracias.html";
+
+}else{
+
+alert("No se pudo enviar la firma.");
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
