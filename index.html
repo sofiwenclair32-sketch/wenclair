@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Wenclair 💜</title>
 
 <style>
@@ -11,7 +12,10 @@ body{
     font-family:Arial,sans-serif;
     text-align:center;
     color:white;
-    background:url("wenclair.jpg") center/cover fixed;
+    background-image:url("imagenes/wenclair.jpg");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
 }
 
 header{
@@ -41,7 +45,6 @@ input{
     background:#120018;
     color:white;
     font-size:16px;
-    margin:8px;
 }
 
 button{
@@ -58,6 +61,11 @@ button{
 button:hover{
     background:#ff7ac8;
 }
+
+footer{
+    padding:30px;
+}
+
 </style>
 
 </head>
@@ -65,8 +73,11 @@ button:hover{
 <body>
 
 <header>
+
 <h1>Wenclair 💜</h1>
+
 <p>Por un futuro donde Wednesday y Enid estén juntas.</p>
+
 </header>
 
 <section class="caja">
@@ -75,20 +86,20 @@ button:hover{
 
 <p>Apoya la petición Wenclair 💜</p>
 
-<form id="formulario">
+<form action="https://formspree.io/f/xnpjjdyb" method="POST" id="formulario">
 
 <input
 type="text"
 name="apodo"
-placeholder="Tu apodo"
+placeholder="Tu apodo de la serie"
 required>
 
-<br>
+<br><br>
 
 <input
 type="email"
 name="email"
-placeholder="Tu correo"
+placeholder="Tu correo (no será público)"
 required>
 
 <br><br>
@@ -99,15 +110,18 @@ required>
 
 </form>
 
-<p id="mensaje"></p>
+<p>🖤 Tu nombre real nunca será mostrado.</p>
 
 </section>
 
 <section class="caja">
+
 <h2>💜 Razones para apoyar Wenclair</h2>
 
 <p>✨ Wednesday y Enid tienen una conexión especial.</p>
+
 <p>✨ Su amistad ha conquistado a millones de fans.</p>
+
 <p>✨ Queremos seguir viendo crecer su historia.</p>
 
 </section>
@@ -116,28 +130,34 @@ required>
 
 <h2>🎮 Juegos y datos</h2>
 
-<p>Próximamente habrá trivias, juegos y curiosidades.</p>
+<p>Muy pronto encontrarás trivias, curiosidades y juegos de Wenclair.</p>
 
 </section>
 
+<footer>
+
+💜 Hecho por fans para fans 💜
+
+</footer>
+
 <script>
 
-const formulario=document.getElementById("formulario");
+const formulario = document.getElementById("formulario");
 
-formulario.addEventListener("submit",async(e)=>{
+formulario.addEventListener("submit", async function(e){
 
 e.preventDefault();
 
-const datos=new FormData(formulario);
+const datos = new FormData(formulario);
 
-const respuesta=await fetch("https://formspree.io/f/xnpjjdyb",{
+const respuesta = await fetch(formulario.action,{
 
 method:"POST",
 
 body:datos,
 
 headers:{
-'Accept':'application/json'
+Accept:"application/json"
 }
 
 });
