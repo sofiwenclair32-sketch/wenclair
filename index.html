@@ -3,20 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Wenclair 💜</title>
 
 <style>
-
 body{
     margin:0;
     font-family:Arial,sans-serif;
     text-align:center;
     color:white;
-    background-image: url("wenclair.jpg");
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
+    background:url("wenclair.jpg") center/cover fixed;
 }
 
 header{
@@ -63,7 +58,6 @@ button{
 button:hover{
     background:#ff7ac8;
 }
-
 </style>
 
 </head>
@@ -71,11 +65,8 @@ button:hover{
 <body>
 
 <header>
-
 <h1>Wenclair 💜</h1>
-
 <p>Por un futuro donde Wednesday y Enid estén juntas.</p>
-
 </header>
 
 <section class="caja">
@@ -84,22 +75,12 @@ button:hover{
 
 <p>Apoya la petición Wenclair 💜</p>
 
-<form action="https://formspree.io/f/xnpjjdyb" method="POST">
-
-<input
-type="hidden"
-name="_subject"
-value="Nueva firma Wenclair">
-
-<input
-type="hidden"
-name="_next"
-value="https://sofiwenclair32-sketch.github.io/wenclair/gracias.html">
+<form id="formulario">
 
 <input
 type="text"
 name="apodo"
-placeholder="Tu apodo de la serie"
+placeholder="Tu apodo"
 required>
 
 <br>
@@ -107,10 +88,10 @@ required>
 <input
 type="email"
 name="email"
-placeholder="Tu correo (no será público)"
+placeholder="Tu correo"
 required>
 
-<br>
+<br><br>
 
 <button type="submit">
 💜 FIRMAR PETICIÓN 💜
@@ -118,18 +99,15 @@ required>
 
 </form>
 
-<p>🖤 Tu nombre real nunca será mostrado.</p>
+<p id="mensaje"></p>
 
 </section>
 
 <section class="caja">
-
 <h2>💜 Razones para apoyar Wenclair</h2>
 
 <p>✨ Wednesday y Enid tienen una conexión especial.</p>
-
 <p>✨ Su amistad ha conquistado a millones de fans.</p>
-
 <p>✨ Queremos seguir viendo crecer su historia.</p>
 
 </section>
@@ -138,15 +116,45 @@ required>
 
 <h2>🎮 Juegos y datos</h2>
 
-<p>Próximamente encontrarás trivias, curiosidades y juegos sobre Wenclair.</p>
+<p>Próximamente habrá trivias, juegos y curiosidades.</p>
 
 </section>
 
-<footer style="padding:30px;">
+<script>
 
-💜 Hecho por fans para fans 💜
+const formulario=document.getElementById("formulario");
 
-</footer>
+formulario.addEventListener("submit",async(e)=>{
+
+e.preventDefault();
+
+const datos=new FormData(formulario);
+
+const respuesta=await fetch("https://formspree.io/f/xnpjjdyb",{
+
+method:"POST",
+
+body:datos,
+
+headers:{
+'Accept':'application/json'
+}
+
+});
+
+if(respuesta.ok){
+
+window.location.href="gracias.html";
+
+}else{
+
+alert("No se pudo enviar la firma.");
+
+}
+
+});
+
+</script>
 
 </body>
 </html>
