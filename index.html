@@ -7,6 +7,7 @@
 <title>Wenclair 💜</title>
 
 <style>
+
 body{
     margin:0;
     font-family:Arial,sans-serif;
@@ -45,6 +46,7 @@ input{
     background:#120018;
     color:white;
     font-size:16px;
+    margin:8px;
 }
 
 button{
@@ -60,10 +62,6 @@ button{
 
 button:hover{
     background:#ff7ac8;
-}
-
-footer{
-    padding:30px;
 }
 
 </style>
@@ -86,7 +84,17 @@ footer{
 
 <p>Apoya la petición Wenclair 💜</p>
 
-<form action="https://formspree.io/f/xnpjjdyb" method="POST" id="formulario">
+<form action="https://formspree.io/f/xnpjjdyb" method="POST">
+
+<input
+type="hidden"
+name="_subject"
+value="Nueva firma Wenclair">
+
+<input
+type="hidden"
+name="_next"
+value="https://sofiwenclair32-sketch.github.io/wenclair/gracias.html">
 
 <input
 type="text"
@@ -94,7 +102,7 @@ name="apodo"
 placeholder="Tu apodo de la serie"
 required>
 
-<br><br>
+<br>
 
 <input
 type="email"
@@ -102,7 +110,7 @@ name="email"
 placeholder="Tu correo (no será público)"
 required>
 
-<br><br>
+<br>
 
 <button type="submit">
 💜 FIRMAR PETICIÓN 💜
@@ -130,51 +138,15 @@ required>
 
 <h2>🎮 Juegos y datos</h2>
 
-<p>Muy pronto encontrarás trivias, curiosidades y juegos de Wenclair.</p>
+<p>Próximamente encontrarás trivias, curiosidades y juegos sobre Wenclair.</p>
 
 </section>
 
-<footer>
+<footer style="padding:30px;">
 
 💜 Hecho por fans para fans 💜
 
 </footer>
-
-<script>
-
-const formulario = document.getElementById("formulario");
-
-formulario.addEventListener("submit", async function(e){
-
-e.preventDefault();
-
-const datos = new FormData(formulario);
-
-const respuesta = await fetch(formulario.action,{
-
-method:"POST",
-
-body:datos,
-
-headers:{
-Accept:"application/json"
-}
-
-});
-
-if(respuesta.ok){
-
-window.location.href="gracias.html";
-
-}else{
-
-alert("No se pudo enviar la firma.");
-
-}
-
-});
-
-</script>
 
 </body>
 </html>
